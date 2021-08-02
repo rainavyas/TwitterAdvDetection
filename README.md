@@ -26,7 +26,7 @@ Fork the repository (and clone).
 
 Run the _train.py_ scripts with desired arguments in your terminal. For example, to train an ELECTRA-based classifier:
 
-_python ./train.py electra_trained.th electra --B=8 --lr=0.00001 --epochs=5 --suppression=0.1_
+_python ./train.py electra_trained_seed1.th electra --B=8 --lr=0.00001 --epochs=5 --seed=1_
 
 # Experimental Results
 
