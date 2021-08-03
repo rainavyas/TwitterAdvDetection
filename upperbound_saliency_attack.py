@@ -128,6 +128,7 @@ if __name__ == '__main__':
     commandLineParser.add_argument('MODEL', type=str, help='trained .th model')
     commandLineParser.add_argument('DATA_PATH', type=str, help='data filepath')
     commandLineParser.add_argument('--max_syn', type=int, default=10, help="Number of synonyms to search")
+    commandLineParser.add_argument('SAVE_DIR_BASE', type=str, help='e.g. Attacked_Data/modelX')
     commandLineParser.add_argument('--N', type=int, default=1, help="Number of words to substitute")
     commandLineParser.add_argument('--start_ind', type=int, default=0, help="tweet index to start at")
     commandLineParser.add_argument('--end_ind', type=int, default=100, help="tweet index to end at")
@@ -135,6 +136,7 @@ if __name__ == '__main__':
     args = commandLineParser.parse_args()
     model_path = args.MODEL
     data_path = args.DATA_PATH
+    save_dir_base = args.SAVE_DIR_BASE
     max_syn = args.max_syn
     N = args.N
     start_ind = args.start_ind
@@ -161,7 +163,7 @@ if __name__ == '__main__':
     softmax = nn.Softmax(dim=0)
 
     # Create directory to save files in
-    dir_name = 'Attacked_Data_N'+str(N)
+    dir_name = save_dir_base+'_N'+str(N)
     if not os.path.isdir(dir_name):
         os.mkdir(dir_name)
 
