@@ -87,8 +87,8 @@ if __name__ == '__main__':
     adv_hepy = entropy(adv_epy, axis=-1)
 
     # Calculate E(H(P(Y)))
-    original_ehpy = torch.mean(entropy(original_probs, axis=-1), axis=1)
-    adv_ehpy = torch.mean(entropy(adv_probs, axis=-1), axis=1)
+    original_ehpy = np.mean(entropy(original_probs, axis=-1), axis=1)
+    adv_ehpy = np.mean(entropy(adv_probs, axis=-1), axis=1)
 
     # Determine the mutual informations
     original_I = original_hepy - original_ehpy
