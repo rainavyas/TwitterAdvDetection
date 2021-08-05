@@ -23,6 +23,7 @@ import os
 import sys
 from tools import get_default_device
 import numpy as np
+import torch
 from models import ElectraSequenceClassifier
 from transformers import ElectraTokenizer
 
