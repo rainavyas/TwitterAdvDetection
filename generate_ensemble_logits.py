@@ -126,6 +126,7 @@ if __name__ == '__main__':
 
     # Populate the logit information array with model predictions
     for n, item in enumerate(data_list):
+        print(f'On {n} of {len(data_list)}')
         original_phrase = item['sentence']
         attack_phrase = item['updated sentence']
         phrases = [original_phrase, attack_phrase]
@@ -142,4 +143,5 @@ if __name__ == '__main__':
             logits[n,m] = preds
 
     # Save the logit information array
+    print("Size", logits.shape)
     np.save(out_file, logits)
