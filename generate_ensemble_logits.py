@@ -115,7 +115,7 @@ if __name__ == '__main__':
 
     # Load all the trained models
     models = []
-    for i in range(num_models):
+    for i in range(1, num_models+1):
         model_path = f'{model_base}{i}.th'
         model = ElectraSequenceClassifier()
         model.load_state_dict(torch.load(model_path, map_location=device))
