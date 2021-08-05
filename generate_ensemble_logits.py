@@ -86,6 +86,7 @@ if __name__ == '__main__':
 
 	args = commandLineParser.parse_args()
 	base_dir = args.DIR
+    model_base = args.MODEL_BASE
     out_file = args.OUT
     num_models = args.num_models
     cpu_use = args.cpu
@@ -114,6 +115,7 @@ if __name__ == '__main__':
     # Load all the trained models
     models = []
     for i in range(num_models):
+        model_path = f'{model_base}{i}.th'
         model = ElectraSequenceClassifier()
         model.load_state_dict(torch.load(model_path, map_location=device))
         model.eval()
