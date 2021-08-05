@@ -76,16 +76,16 @@ def keep_only_success(data_list):
 
 if __name__ == '__main__':
 
-	# Get command line arguments
-	commandLineParser = argparse.ArgumentParser()
-	commandLineParser.add_argument('DIR', type=str, help='data base directory with original and attack results')
+    # Get command line arguments
+    commandLineParser = argparse.ArgumentParser()
+    commandLineParser.add_argument('DIR', type=str, help='data base directory with original and attack results')
     commandLineParser.add_argument('MODEL_BASE', type=str, help='directory and base model name, excluding seed and extension')
     commandLineParser.add_argument('OUT', type=str, help='output .npy file to save logits array to')
     commandLineParser.add_argument('--num_models', type=int, default=5, help="Specify number of models in ensemble")
     commandLineParser.add_argument('--cpu', type=str, default='no', help="force cpu use")
 
-	args = commandLineParser.parse_args()
-	base_dir = args.DIR
+    args = commandLineParser.parse_args()
+    base_dir = args.DIR
     model_base = args.MODEL_BASE
     out_file = args.OUT
     num_models = args.num_models
