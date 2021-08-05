@@ -39,6 +39,10 @@ Explanation of mutual information as uncertainty metric:
         where E refers to the expectation over ensemble of models,
         i.e. a simple average over 5 models in this case.
 '''
+
+import sys
+import os
+import argparse
 import numpy as np
 from scipy.special import softmax
 from scipy.stats import entropy
@@ -52,8 +56,8 @@ def get_best_f_score(precisions, recalls, beta=1.0):
 
 if __name__ == '__main__':
 	# Get command line arguments
-	commandLineParser = argparse.ArgumentParser()
-	commandLineParser.add_argument('FILENAME', type=str, help='.npy file with logits array')
+    commandLineParser = argparse.ArgumentParser()
+    commandLineParser.add_argument('FILENAME', type=str, help='.npy file with logits array')
     commandLineParser.add_argument('OUT', type=str, help='.png file for pr curve')
 
     args = commandLineParser.parse_args()
