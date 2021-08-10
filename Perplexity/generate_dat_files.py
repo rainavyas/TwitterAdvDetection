@@ -84,7 +84,7 @@ if __name__ == '__main__':
     if not os.path.isdir(out_orig_dir):
         os.mkdir(out_orig_dir)
     if not os.path.isdir(out_adv_dir):
-        os.mkdir(out_orig_dir)
+        os.mkdir(out_adv_dir)
 
     # Load all the data from attacked data directory
     data_list = load_data(data_dir)
