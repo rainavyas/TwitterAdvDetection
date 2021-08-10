@@ -101,8 +101,8 @@ if __name__ == '__main__':
 
     # Generate the .dat files
     for num, item in enumerate(data_list):
-        orig = data_list['sentence']
-        adv = data_list['updated sentence']
+        orig = item['sentence']
+        adv = item['updated sentence']
 
         # Original
         filename = f'{out_orig_dir}/{num}.dat'
