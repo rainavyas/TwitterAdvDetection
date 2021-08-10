@@ -18,12 +18,12 @@ RNNOUWLIST=/home/alta/BLTSpeaking/exp-lw519/GDLMs/GDRNNLM2/RNN_weight.OOS.cuedrn
 RNNFEAFILE=/home/alta/BLTSpeaking/exp-lw519/GDLMs/data/fea.mat
 
 # Give the file with list of all dat files to run GDLM on
-# TFLIST=adversarial/tflist.txt
-TFLIST=original/tflist.txt
+TFLIST=adversarial/tflist.txt
+# TFLIST=original/tflist.txt
 
 # Define where to save the output
-# OUTPUT=results/adversarial.txt
-OUTPUT=results/original.txt
+OUTPUT=results/adversarial.txt
+# OUTPUT=results/original.txt
 
 
 # run GDLM over each word's .dat file in flist of all dat files
