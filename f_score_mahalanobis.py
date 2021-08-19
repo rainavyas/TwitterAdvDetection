@@ -34,17 +34,17 @@ from f_score_uncertainty import get_best_f_score
 
 
 def calculate_per_class_dist(vector, class_mean, inv_cov):
-	diff = vector - class_mean
-        print(diff)
-	half = np.matmul(inv_cov, diff)
-	return np.dot(diff, half)
+    diff = vector - class_mean
+    print(diff)
+    half = np.matmul(inv_cov, diff)
+    return np.dot(diff, half)
 
 def calculate_mahalanobis(vector, class_means, inv_cov):
-	# Select closest class conditional distance
-	dists = []
-	for class_mean in class_means:
-		dists.append(calculate_per_class_dist(vector, class_mean, inv_cov))
-	return min(dists)
+    # Select closest class conditional distance
+    dists = []
+    for class_mean in class_means:
+        dists.append(calculate_per_class_dist(vector, class_mean, inv_cov))
+    return min(dists)
 
 
 if __name__ == '__main__':
