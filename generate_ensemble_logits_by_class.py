@@ -115,8 +115,8 @@ if __name__ == '__main__':
 
     # Initialise arrays to store all logit information by class
     logits_list = []
-    for in range(6):
-        logits.append(np.zeros((len(data_list), num_models, 2, 6)))
+    for i in range(6):
+        logits_list.append(np.zeros((len(data_list), num_models, 2, 6)))
 
     # Load all the trained models
     models = []
