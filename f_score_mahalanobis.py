@@ -35,8 +35,8 @@ from f_score_uncertainty import get_best_f_score
 
 def calculate_per_class_dist(vector, class_mean, inv_cov):
 	diff = vector - class_mean
-	half = np.matmul(inv_cov, diff)
     print(diff)
+	half = np.matmul(inv_cov, diff)
 	return np.dot(diff, half)
 
 def calculate_mahalanobis(vector, class_means, inv_cov):
