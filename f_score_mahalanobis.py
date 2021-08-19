@@ -30,6 +30,7 @@ import os
 import argparse
 from sklearn.metrics import precision_recall_curve
 import matplotlib.pyplot as plt
+from f_score_uncertainty import get_best_f_score
 
 
 def calculate_per_class_dist(vector, class_mean, inv_cov):
@@ -81,7 +82,7 @@ if __name__ == '__main__':
 
 
 	# Calculate class specific means
-	#  Calculate an averaged tied covariance matrix
+	# Calculate an averaged tied covariance matrix
 	class_means = []
 	cov = np.zeros((NUM_CLASSES, NUM_CLASSES))
 	for i in range(NUM_CLASSES):
