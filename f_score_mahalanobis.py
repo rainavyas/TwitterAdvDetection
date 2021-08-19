@@ -73,7 +73,6 @@ if __name__ == '__main__':
     FRAC = 0.8
     for i in range(NUM_CLASSES):
         logits = np.squeeze(logits_dict[f'arr_{i}'][:,0,:,:])
-        print(type(logits))
         train_logits = logits[:int(FRAC*len(logits)),:,:]
         test_logits = logits[int(FRAC*len(logits)):,:,:]
 
@@ -81,7 +80,7 @@ if __name__ == '__main__':
         test_original_logits_list.append(np.squeeze(test_logits[:,0,:]))
         test_adv_logits_list.append(np.squeeze(test_logits[:,1,:]))
 
-    print('train original', train_original_logits_list[0].shape())
+    print('train original', train_original_logits_list[0].shape)
 
 	# Calculate class specific means
 	# Calculate an averaged tied covariance matrix
@@ -94,7 +93,7 @@ if __name__ == '__main__':
         class_cov = np.cov(train_original_logits_list[i], rowvar=False)
         cov += class_cov
     cov = cov/NUM_CLASSES
-    print("class mean", class_means[0].shape())
+    print("class mean", class_means[0].shape)
     print("cov", cov)
 
 	# Calculate Mahalanobis distances per test data point
@@ -103,7 +102,7 @@ if __name__ == '__main__':
 
     original_dists = []
     for logits in test_original_logits_list:
-        print(logits.shape())
+        print(logits.shape)
         original_dists.append(calculate_mahalanobis(logits, class_means, inv_cov))
 
     adv_dists = []
