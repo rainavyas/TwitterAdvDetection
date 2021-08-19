@@ -73,6 +73,7 @@ if __name__ == '__main__':
     FRAC = 0.8
     for i in range(NUM_CLASSES):
         logits = np.squeeze(logits_dict[f'arr_{i}'][:,0,:,:])
+        print(type(logits))
         train_logits = logits[:int(FRAC*len(logits)),:,:]
         test_logits = logits[int(FRAC*len(logits)):,:,:]
 
