@@ -92,7 +92,7 @@ if __name__ == '__main__':
         class_cov = np.cov(train_original_logits_list[i], rowvar=False)
         cov += class_cov
     cov = cov/NUM_CLASSES
-    print("class mean", class_mean.shape())
+    print("class mean", class_means[0].shape())
     print("cov", cov)
 
 	# Calculate Mahalanobis distances per test data point
