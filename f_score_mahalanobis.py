@@ -83,15 +83,15 @@ if __name__ == '__main__':
 
 	# Calculate class specific means
 	# Calculate an averaged tied covariance matrix
-	class_means = []
-	cov = np.zeros((NUM_CLASSES, NUM_CLASSES))
-	for i in range(NUM_CLASSES):
-		class_mean = np.mean(train_original_logits_list[i], axis=0)
-		class_means.append(class_mean)
+    class_means = []
+    cov = np.zeros((NUM_CLASSES, NUM_CLASSES))
+    for i in range(NUM_CLASSES):
+        class_mean = np.mean(train_original_logits_list[i], axis=0)
+        class_means.append(class_mean)
 
-		class_cov = np.cov(train_original_logits_list[i], rowvar=False)
-		cov += class_cov
-	cov = cov/NUM_CLASSES
+        class_cov = np.cov(train_original_logits_list[i], rowvar=False)
+        cov += class_cov
+    cov = cov/NUM_CLASSES
 
 
 	# Calculate Mahalanobis distances per test data point
