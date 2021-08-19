@@ -98,12 +98,12 @@ if __name__ == '__main__':
     inv_cov = np.linalg.inv(cov)
 
     original_dists = []
-    for logits in test_original_logits_list:
+    for logits in np.concatenate(test_original_logits_list):
         print("logits", logits.shape)
         original_dists.append(calculate_mahalanobis(logits, class_means, inv_cov))
 
     adv_dists = []
-    for logits in test_adv_logits_list:
+    for logits in np.concatenate(test_adv_logits_list):
         adv_dists.append(calculate_mahalanobis(logits, class_means, inv_cov))
 
     dists = np.asarray(original_dists+adv_dists)
