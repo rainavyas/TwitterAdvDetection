@@ -95,18 +95,18 @@ if __name__ == '__main__':
 
 
 	# Calculate Mahalanobis distances per test data point
-	inv_cov = np.linalg.inv(cov)
+    inv_cov = np.linalg.inv(cov)
 
-	original_dists = []
-	for logits in test_original_logits_list:
-		original_dists.append(calculate_mahalanobis(logits, class_means, inv_cov))
+    original_dists = []
+    for logits in test_original_logits_list:
+        original_dists.append(calculate_mahalanobis(logits, class_means, inv_cov))
 
-	adv_dists = []
+    adv_dists = []
 	for logits in test_adv_logits_list:
 		adv_dists.append(calculate_mahalanobis(logits, class_means, inv_cov))
 
-	dists = np.asarray(original_dists+adv_dists)
-	labels = [0]*len(original_dists) + [1]*len(adv_dists)
+    dists = np.asarray(original_dists+adv_dists)
+    labels = [0]*len(original_dists) + [1]*len(adv_dists)
 
     # Calculate best F1-score
     precision, recall, _ = precision_recall_curve(labels, dists)
