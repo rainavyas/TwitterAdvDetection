@@ -80,8 +80,6 @@ if __name__ == '__main__':
         test_original_logits_list.append(np.squeeze(test_logits[:,0,:]))
         test_adv_logits_list.append(np.squeeze(test_logits[:,1,:]))
 
-    print('train original', train_original_logits_list[0].shape)
-
 	# Calculate class specific means
 	# Calculate an averaged tied covariance matrix
     class_means = []
@@ -99,7 +97,6 @@ if __name__ == '__main__':
 
     original_dists = []
     for logits in np.concatenate(test_original_logits_list):
-        print("logits", logits.shape)
         original_dists.append(calculate_mahalanobis(logits, class_means, inv_cov))
 
     adv_dists = []
@@ -116,7 +113,7 @@ if __name__ == '__main__':
     # plot all the data
     plt.plot(recall, precision, 'r-')
     plt.plot(best_recall,best_precision,'bo')
-    plt.annotate(F"F1={best_f1:.2f}", (best_recall,best_precision))
+    plt.annotate(f"F1={best_f1:.2f}", (best_recall, best_precision))
     plt.xlabel('Recall')
     plt.ylabel('Precision')
     plt.savefig(out_file)
