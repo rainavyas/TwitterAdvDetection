@@ -53,5 +53,6 @@ if __name__ == '__main__':
     train_original_logits_list = []
     test_original_logits_list = []
     test_adv_logits_list = []
+    TRAIN_FRAC = 0.8
     for i in range(6):
-        logits_list = logits_dict[f'arr_{i}'][:,0,:,:]
+        logits = np.squeeze(logits_dict[f'arr_{i}'][:,0,:,:])
