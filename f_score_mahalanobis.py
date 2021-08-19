@@ -73,13 +73,14 @@ if __name__ == '__main__':
     FRAC = 0.8
     for i in range(NUM_CLASSES):
         logits = np.squeeze(logits_dict[f'arr_{i}'][:,0,:,:])
-        train_logits = logits[:int(FRAC*len(logits))]
-        test_logits = logits[int(FRAC*len(logits)):]
+        train_logits = logits[:int(FRAC*len(logits)),:,:]
+        test_logits = logits[int(FRAC*len(logits)):,:,:]
 
         train_original_logits_list.append(np.squeeze(train_logits[:,0,:]))
         test_original_logits_list.append(np.squeeze(test_logits[:,0,:]))
         test_adv_logits_list.append(np.squeeze(test_logits[:,1,:]))
 
+    print('train original', train_original_logits_list[0].shape())
 
 	# Calculate class specific means
 	# Calculate an averaged tied covariance matrix
