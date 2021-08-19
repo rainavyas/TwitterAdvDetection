@@ -35,6 +35,7 @@ from f_score_uncertainty import get_best_f_score
 
 def calculate_per_class_dist(vector, class_mean, inv_cov):
 	diff = vector - class_mean
+    print(diff)
 	half = np.matmul(inv_cov, diff)
 	return np.dot(diff, half)
 
@@ -103,8 +104,8 @@ if __name__ == '__main__':
     for logits in np.concatenate(test_adv_logits_list):
         adv_dists.append(calculate_mahalanobis(logits, class_means, inv_cov))
 
-    print(original_dists)
-    print(adv_dists)
+    # print(original_dists)
+    # print(adv_dists)
 
     dists = np.asarray(original_dists+adv_dists)
     labels = [0]*len(original_dists) + [1]*len(adv_dists)
