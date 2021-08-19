@@ -92,13 +92,16 @@ if __name__ == '__main__':
         class_cov = np.cov(train_original_logits_list[i], rowvar=False)
         cov += class_cov
     cov = cov/NUM_CLASSES
-
+    print("class mean", class_mean.shape())
+    print("cov", cov)
 
 	# Calculate Mahalanobis distances per test data point
     inv_cov = np.linalg.inv(cov)
+    print("cov", inv_cov)
 
     original_dists = []
     for logits in test_original_logits_list:
+        print(logits.shape())
         original_dists.append(calculate_mahalanobis(logits, class_means, inv_cov))
 
     adv_dists = []
