@@ -35,7 +35,7 @@ from f_score_uncertainty import get_best_f_score
 
 def calculate_per_class_dist(vector, class_mean, inv_cov):
 	diff = vector - class_mean
-    print(diff)
+        print(diff)
 	half = np.matmul(inv_cov, diff)
 	return np.dot(diff, half)
 
@@ -48,7 +48,7 @@ def calculate_mahalanobis(vector, class_means, inv_cov):
 
 
 if __name__ == '__main__':
-	# Get command line arguments
+    # Get command line arguments
     commandLineParser = argparse.ArgumentParser()
     commandLineParser.add_argument('FILENAME', type=str, help='.npz file with list of logits array')
     commandLineParser.add_argument('OUT', type=str, help='.png file for pr curve')
@@ -81,8 +81,8 @@ if __name__ == '__main__':
         test_original_logits_list.append(np.squeeze(test_logits[:,0,:]))
         test_adv_logits_list.append(np.squeeze(test_logits[:,1,:]))
 
-	# Calculate class specific means
-	# Calculate an averaged tied covariance matrix
+     # Calculate class specific means
+     # Calculate an averaged tied covariance matrix
     class_means = []
     cov = np.zeros((NUM_CLASSES, NUM_CLASSES))
     for i in range(NUM_CLASSES):
@@ -93,7 +93,7 @@ if __name__ == '__main__':
         cov += class_cov
     cov = cov/NUM_CLASSES
 
-	# Calculate Mahalanobis distances per test data point
+    # Calculate Mahalanobis distances per test data point
     inv_cov = np.linalg.inv(cov)
 
     original_dists = []
