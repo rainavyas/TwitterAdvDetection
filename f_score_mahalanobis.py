@@ -54,4 +54,4 @@ if __name__ == '__main__':
     test_original_logits_list = []
     test_adv_logits_list = []
     for i in range(6):
-        logits_list = logits_dict[f'arr_{i}'][:,0,:,:])
+        logits_list = logits_dict[f'arr_{i}'][:,0,:,:]
