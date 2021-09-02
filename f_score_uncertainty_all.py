@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     args = commandLineParser.parse_args()
     filename = args.FILENAME
-    out_dir = args.OUT
+    out_dir = args.OUT_DIR
 
     # Save the command run
     if not os.path.isdir('CMDs'):
