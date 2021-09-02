@@ -71,6 +71,7 @@ if __name__ == '__main__':
     adv_uncertainties = ensemble_uncertainties_classification(adv_probsT)
 
     # For each uncertainty measure get PR curve
+    print(len(original_probs), len(adv_probs))
     labels = [0]*len(original_probs) + [1]*len(adv_probs)
 
     for measure in original_uncertainties.keys():
