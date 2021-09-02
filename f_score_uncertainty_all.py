@@ -90,4 +90,5 @@ if __name__ == '__main__':
         plt.xlabel('Recall')
         plt.ylabel('Precision')
         plt.savefig(out_file)
+        plt.clf()
 
