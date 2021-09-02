@@ -70,7 +70,7 @@ if __name__ == '__main__':
     original_uncertainties = ensemble_uncertainties_classification(original_probsT)
     adv_uncertainties = ensemble_uncertainties_classification(adv_probsT)
 
-    # For each uncertainty measure get PR curve
+    # For each uncertainty measure get separate PR curve
     print(len(original_probs), len(adv_probs))
     labels = [0]*len(original_probs) + [1]*len(adv_probs)
 
@@ -93,3 +93,18 @@ if __name__ == '__main__':
         plt.savefig(out_file)
         plt.clf()
 
+    # Plot all uncertainty measure PR curves on same graph
+    out_file = f'{out_dir}/pr_all_uncertainty.png'
+    for measure in original_uncertainties.keys():
+        original = original_uncertainties[measure]
+        adv = adv_uncertainties[measure]
+        together = np.concatenate((original, adv))
+
+        # Calculate best F1-score
+        precision, recall, _ = precision_recall_curve(labels, together)
+        best_precision, best_recall, best_f1 =  get_best_f_score(precision, recall)
+        plt.plot(recall, precision, label=f'measure, F1={best_f1:.2f}')
+    plt.xlabel('Recall')
+    plt.ylabel('Precision')
+    plt.legend()
+    plt.savefig(out_file)
