@@ -103,7 +103,8 @@ if __name__ == '__main__':
         # Calculate best F1-score
         precision, recall, _ = precision_recall_curve(labels, together)
         best_precision, best_recall, best_f1 =  get_best_f_score(precision, recall)
-        plt.plot(recall, precision, label=f'measure, F1={best_f1:.2f}')
+        plt.plot(recall, precision, label=f'{measure}, F1={best_f1:.2f}')
+        plt.plot(best_recall,best_precision,'ko')
     plt.xlabel('Recall')
     plt.ylabel('Precision')
     plt.legend()
