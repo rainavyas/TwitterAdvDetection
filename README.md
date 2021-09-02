@@ -32,7 +32,8 @@ _python ./train.py electra_trained_seed1.th electra --B=8 --lr=0.00001 --epochs=
 
 | Detection Approach | F1 Score |
 | ----------------- | :-----------------: |
-Ensemble Uncertainty |  |
-Mahalanobis Distance | |
+Mutual Information Uncertainty |  0.78|
+Mahalanobis Distance | 0.67|
+Perplexity | 0.67 |
 
 Detection was applied to a 6-word substitution attack on the Electra based Twitter emotion classifiers.
